@@ -1,10 +1,15 @@
 "use strict";
 
+const utils = require("../utils.js");
+
+
 module.exports = {
   name: "guildMemberRemove",
-  description: "",
+  description: "Executes whenever a member leaves the server",
   
-  execute() {
+  execute(member) {
+    const farewellString = `For some reason, ${member} vanished from the server. :(`;
     
+    utils.getChannel("welcome").send(farewellString);
   }
 }

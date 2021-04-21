@@ -9,6 +9,6 @@ module.exports = {
   once: true,
   
   execute() {
-    console.log(`${client.user.tag} is running.`);
+    console.log(`${client.user.tag} is running!`);
   }
 }
