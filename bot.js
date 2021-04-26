@@ -1,9 +1,10 @@
 "use strict";
 
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const {Client, MessageAttachment} = require("discord.js");
+const client = new Client();
 
 
 module.exports = {
-  client
+  client,
+  MessageAttachment
 }

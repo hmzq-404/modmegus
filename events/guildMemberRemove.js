@@ -8,7 +8,7 @@ module.exports = {
   description: "Executes whenever a member leaves the server",
   
   execute(member) {
-    const farewellString = `For some reason, ${member} vanished from the server. :(`;
+    const farewellString = `For some reason, ${member} vanished from the server :(`;
     
     utils.getChannel("welcome").send(farewellString);
   }

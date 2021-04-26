@@ -1,7 +1,7 @@
 "use strict";
 
 const fs = require("fs");
-const {client} = require("./bot.js")
+const {client} = require("./bot.js");
 
 
 //Event Handler
@@ -16,6 +16,12 @@ for (const file of eventFiles) {
     client.on(event.name, (...args) => event.execute(...args));
   }
 }
+
+
+//Tries to post a meme every hour
+setInterval(() => {
+  client.emit("memeTime");
+}, 3600000);
 
 
 
