@@ -8,11 +8,10 @@ const utils = require("../utils.js");
 module.exports = {
   name: "memeTime",
   description: "Posts a memes everyday at specified UTC time",
-  postTime: 20,
   
   execute() {
     let currentDate = new Date();
-    if (currentDate.getUTCHours() !== postTime) return;
+    if (currentDate.getUTCHours() !== 20) return;
     
     //Get random meme
     let memeFiles = fs.readdirSync("./memes");
