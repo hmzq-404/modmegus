@@ -11,7 +11,7 @@ module.exports = {
   
   execute() {
     let currentDate = new Date();
-    if (currentDate.getUTCHours() !== 20) return;
+    if (currentDate.getUTCHours() !== 8) return;
     
     //Get random meme
     let memeFiles = fs.readdirSync("./memes");
