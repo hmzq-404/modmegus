@@ -21,8 +21,8 @@ for (const file of eventFiles) {
 //Tries to post a meme every hour
 setInterval(() => {
   client.emit("memeTime");
-}, 60000);
-//3600000
+}, 3600000);
+
 
 
 client.login(process.env["BOT_TOKEN"]);
