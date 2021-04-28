@@ -10,6 +10,6 @@ module.exports = {
   execute(member) {
     const farewellString = `For some reason, ${member} vanished from the server :(`;
     
-    utils.getChannel("welcome").send(farewellString);
+    utils.getChannel("welcome", member.guild).send(farewellString);
   }
 }
