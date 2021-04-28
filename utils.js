@@ -9,8 +9,8 @@ function randomInt(min, max) {
 };
 
 
-function getChannel(name) {
-  const channel = client.channels.cache.find(ch => ch.name === name);
+function getChannel(name, guild=client) {
+  const channel = guild.channels.cache.find(ch => ch.name === name);
   return channel;
 }
 
