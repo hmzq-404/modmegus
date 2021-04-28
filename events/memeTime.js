@@ -11,7 +11,7 @@ module.exports = {
   
   execute() {
     let currentDate = new Date();
-    if (currentDate.getUTCHours() !== 8) return;
+    //if (currentDate.getUTCHours() !== 8) return;
     
     //Get random meme
     let memeFiles = fs.readdirSync("./memes");
@@ -20,12 +20,10 @@ module.exports = {
     let memeAttachment = new MessageAttachment(fs.readFileSync(randomMeme));
 
     //Send meme
-    const memesChannel = utils.getChannel("memes");
-    
-    memesChannel.send("Hello @everyone! Here's today's meme of the day:");
-    memesChannel.send(memeAttachment);
+    utils.bulkSend("Hello @everyone! Here's today's meme of the day:", "memes");
+    utils.bulkSend(memeAttachment, "memes");
 
     //Delete file
-    fs.unlinkSync(randomMeme);
+    //fs.unlinkSync(randomMeme);
   }
 }
