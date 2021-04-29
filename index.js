@@ -15,13 +15,13 @@ for (const file of eventFiles) {
   } else {
     client.on(event.name, (...args) => event.execute(...args));
   }
+  
+  if (event.interval) {
+    setInterval(() => {
+      client.emit(event.name);
+    }, event.interval);
+  }
 }
-
-
-//Tries to post a meme every hour
-setInterval(() => {
-  client.emit("memeTime");
-}, 3600000);
 
 
 
