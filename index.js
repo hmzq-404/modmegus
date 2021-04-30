@@ -1,7 +1,7 @@
 "use strict";
 
 const fs = require("fs");
-const {client} = require("./bot.js");
+const {client, loadClient} = require("./src/bot.js");
 
 
 //Event Handler
@@ -25,4 +25,4 @@ for (const file of eventFiles) {
 
 
 
-client.login(process.env["BOT_TOKEN"]);
+loadClient()
