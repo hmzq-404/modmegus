@@ -1,8 +1,8 @@
 "use strict";
 
 const fs = require("fs");
-const {client, MessageAttachment} = require("../bot.js");
-const utils = require("../utils.js");
+const {client, MessageAttachment} = require("../src/bot.js");
+const utils = require("../src/utils.js");
 
 
 module.exports = {

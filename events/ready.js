@@ -1,6 +1,6 @@
 "use strict";
 
-const {client} = require("../bot.js");
+const {client} = require("../src/bot.js");
 
 
 module.exports = {
