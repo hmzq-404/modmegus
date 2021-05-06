@@ -1,6 +1,6 @@
 "use strict";
 
-const {client} = require("../src/bot.js");
+const {client} = require("../src/client.js");
 
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
   description: "Executes once client is ready",
   once: true,
   
-  execute() {
-    console.log(`${client.user.tag} is running!`);
+  async execute() {
+    console.log(`${client.user.tag} is live!`);
   }
 }

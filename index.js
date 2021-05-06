@@ -1,28 +1,19 @@
 "use strict";
 
-const fs = require("fs");
-const {client, loadClient} = require("./src/bot.js");
+const {client, loadClient} = require("./src/client.js");
+
+const express = require("express");
+const server = express();
+const port = 3000;
 
 
-//Event Handler
-const eventFiles = fs.readdirSync("./events");
+server.get("/", (req, res) => {
+  res.send("Server is live!")
+});
 
-for (const file of eventFiles) {
-  const event = require(`./events/${file}`);
-  
-  if (event.once) {
-    client.once(event.name, (...args) => event.execute(...args));
-  } else {
-    client.on(event.name, (...args) => event.execute(...args));
-  }
-  
-  if (event.interval) {
-    setInterval(() => {
-      client.emit(event.name);
-    }, event.interval);
-  }
-}
+server.listen(port, () => {
+  console.log(`Server listening at port ${port}.`)
+});
 
 
-
-loadClient()
+loadClient();

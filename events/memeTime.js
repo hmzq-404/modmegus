@@ -1,7 +1,7 @@
 "use strict";
 
 const fs = require("fs");
-const {client, MessageAttachment} = require("../src/bot.js");
+const {client, MessageAttachment} = require("../src/client.js");
 const utils = require("../src/utils.js");
 
 
@@ -10,15 +10,16 @@ module.exports = {
   description: "Posts a memes everyday at specified UTC time",
   interval: 3600000, //1 hour
   
-  execute() {
+  async execute() {
     let currentDate = new Date();
     if (currentDate.getUTCHours() !== 8) return;
     
-    try {
-      //Get random meme
-      let memeFiles = fs.readdirSync("./memes");
-      let index = utils.randomInt(0, memeFiles.length);
-      let randomMeme = `./memes/${memeFiles[index]}`;
+    //Get random meme
+    fs.readdir("./memes", (err, files) => {
+      if (err) throw new Error(err);
+        
+      let index = utils.randomInt(0, files.length);
+      let randomMeme = `./memes/${files[index]}`;
       let memeAttachment = new MessageAttachment(fs.readFileSync(randomMeme));
 
       //Send meme
@@ -27,9 +28,6 @@ module.exports = {
 
       //Delete file
       fs.unlinkSync(randomMeme);
-    
-    } catch(error) {
-      console.log(error)
-    }
+    });
   }
 }
