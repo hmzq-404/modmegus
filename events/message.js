@@ -4,7 +4,7 @@ module.exports = {
   name: "message",
   description: "",
   
-  execute() {
+  async execute() {
     
   }
 }

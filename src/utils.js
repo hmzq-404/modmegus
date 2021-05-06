@@ -1,6 +1,6 @@
 "use strict";
 
-const {client} = require("./bot.js");
+const {client} = require("./client.js");
 
 
 function randomInt(min, max) {
