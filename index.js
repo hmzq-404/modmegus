@@ -10,7 +10,7 @@ server.get("/", (req, res) => {
   res.send("Server is live!")
 });
 
-server.listen(process.env.port || 3000, () => {
+server.listen(3000, () => {
   console.log("Server is live!")
 });
 
