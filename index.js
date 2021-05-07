@@ -4,13 +4,14 @@ const {client, loadClient} = require("./src/client.js");
 
 const express = require("express");
 const server = express();
+const PORT = process.env.PORT || 3000
 
 
 server.get("/", (req, res) => {
   res.send("Server is live!")
 });
 
-server.listen(3000, () => {
+server.listen(PORT, () => {
   console.log("Server is live!")
 });
 
