@@ -1,7 +1,7 @@
 "use strict";
 
 const bannedContent = require("../banned_content.json");
-const utils = require("../src/utils.js")
+
 
 
 function containsBannedWords(string) {
@@ -18,7 +18,19 @@ async function moderateMessage(message) {
   const cleanedMessage = message.replaceAll(" ", "").lower();
   
   if (containsBannedWords(message.content)) {
+    console.log(message.content);
     
+    try {
+      await message.delete();
+      
+      await message.member.ban({"reason": "Use of innapropriate words"});
+      
+      await utils.getChannel("welcome", guild)
+      .send(`${message.author} was struck by the banhammer!`);
+      
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 }
 
