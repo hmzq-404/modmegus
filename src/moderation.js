@@ -25,9 +25,6 @@ async function moderateMessage(message) {
       
       await message.member.ban({"reason": "Use of innapropriate words"});
       
-      await utils.getChannel("welcome", guild)
-      .send(`${message.author} was struck by the banhammer!`);
-      
     } catch (error) {
       throw new Error(error);
     }
