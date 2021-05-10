@@ -15,9 +15,9 @@ function containsBannedWords(string) {
 
 async function moderateMessage(message) {
   //"My Name is Bob" => "mynameisbob"
-  const cleanedMessage = message.replaceAll(" ", "").lower();
+  const cleanedMessage = message.content.replace(/ /g, "").toLowerCase();
   
-  if (containsBannedWords(message.content)) {
+  if (containsBannedWords(cleanedMessage)) {
     console.log(message.content);
     
     try {
