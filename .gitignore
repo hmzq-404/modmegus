@@ -1,6 +1,0 @@
-#Environment Variables
-.env
-
-#Contains swear words
-#{"NOTE": "", "words": [...]}
-banned_content.json
